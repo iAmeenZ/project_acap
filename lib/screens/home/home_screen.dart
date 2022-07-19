@@ -41,16 +41,17 @@ class _HomeScreenState extends State<HomeScreen> {
       keyword: "hospital"
     );
     
-    debugPrint("ANJASOL ${nearbyHospital!.status}");
-    for (var e in nearbyHospital!.results!) {
-      markers.add(
-        Marker(
-          markerId: MarkerId(e.hashCode.toString()),
-          position: LatLng(e.geometry!.location!.lat!, e.geometry!.location!.lng!),
-          icon: BitmapDescriptor.defaultMarkerWithHue(200)
-        )
-      );
-      debugPrint("ANJAS ${e.businessStatus} | ${e.icon} | ${e.geometry} | ${e.name}");
+    if (nearbyHospital != null) {
+      for (var e in nearbyHospital!.results!) {
+        markers.add(
+          Marker(
+            markerId: MarkerId(e.hashCode.toString()),
+            position: LatLng(e.geometry!.location!.lat!, e.geometry!.location!.lng!),
+            icon: BitmapDescriptor.defaultMarkerWithHue(200)
+          )
+        );
+        debugPrint("ANJAS ${e.businessStatus} | ${e.icon} | ${e.geometry} | ${e.name}");
+      }
     }
     
     if (mounted) setState(() {});

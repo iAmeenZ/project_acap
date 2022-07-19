@@ -9,6 +9,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:project_2/model/user_model.dart';
 import 'package:project_2/screens/authenticate/login_screen.dart';
 import 'package:project_2/services/auth.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -183,53 +184,24 @@ class _ProfileState extends State<Profile> {
                       ],
                     ),
                     SizedBox(height: 10),
-                    Container(
-                      padding: EdgeInsets.fromLTRB(100, 10, 100, 10),
-                      decoration: BoxDecoration(
-                        color: Colors.blueAccent,
-                        border: Border.all(color: Colors.black, width: 2),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Text(
-                        interest1 ?? '',
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white,
+                    InkWell(
+                      onTap: () {
+                        launchUrl(Uri.parse('https://github.com/AsyrafRoslan'));
+                      },
+                      child: Container(
+                        padding: EdgeInsets.fromLTRB(100, 10, 100, 10),
+                        decoration: BoxDecoration(
+                          color: Colors.blueAccent,
+                          border: Border.all(color: Colors.black, width: 2),
+                          borderRadius: BorderRadius.circular(20),
                         ),
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    Container(
-                      padding: EdgeInsets.fromLTRB(100, 10, 100, 10),
-                      decoration: BoxDecoration(
-                        color: Colors.blueAccent,
-                        border: Border.all(color: Colors.black, width: 2),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Text(
-                        interest2 ?? '',
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    Container(
-                      padding: EdgeInsets.fromLTRB(100, 10, 100, 10),
-                      decoration: BoxDecoration(
-                        color: Colors.blueAccent,
-                        border: Border.all(color: Colors.black, width: 2),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Text(
-                        interest3 ?? '',
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white,
+                        child: Text(
+                          'ABOUT ME',
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ),
